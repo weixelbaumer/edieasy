@@ -1,0 +1,17 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This Class PHP is an analyser for EDIFACT normalization.
+
+This Class can work online (in one pass file) or in memory.
+
+The programm need the standard dictionnary UNECE.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
