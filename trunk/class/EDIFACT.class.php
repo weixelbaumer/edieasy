@@ -1524,13 +1524,13 @@
 		}
 		// Current Segment Name
 		function GetCurrentSegmentName() {
-			return @$this->TABLE_MESSAGE[$this->Cpt_MESSAGE][$this->TABLE_INDEXATION[$this->PointeurMessage]["INDEX_MESSAGE"]]["VALEUR"];
+			return @$this->TABLE_MESSAGE[$this->TABLE_INDEXATION[$this->PointeurMessage]["INDEX_MESSAGE"]]["VALEUR"];
 		}
 		
 		// Is Current Group Name
 		function IsCurrentSegmentName($SegmentName) {
 			$Test = FALSE;
-			$CurrentSegmentName =  @$this->TABLE_MESSAGE[$this->Cpt_MESSAGE][$this->TABLE_INDEXATION[$this->PointeurMessage]["INDEX_MESSAGE"]]["VALEUR"];
+			$CurrentSegmentName =  @$this->TABLE_MESSAGE[$this->TABLE_INDEXATION[$this->PointeurMessage]["INDEX_MESSAGE"]]["VALEUR"];
 			if (strcmp($SegmentName,$CurrentSegmentName) === 0) {
 				$Test = TRUE;
 			}
