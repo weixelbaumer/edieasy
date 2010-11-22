@@ -7,7 +7,7 @@ $E = new EDIFACT();
 
 // $E->DisplayClassEdifactInformation();
 
-$E->LoadFile("EDIFACT.txt");
+$E->LoadFile("EDIFACT0.txt");
 
 $OK = $E->FindUNH(1);
 
@@ -32,16 +32,20 @@ $time = $time_end - $time_start;
 echo "<BR><BR>FIN CHARGEMENT STRUCTURE MESSAGE => TEMP DE REACTION $time secondes\n";
 
 echo "<BR>**** VALIDATION MESSAGE *** <BR>";
-// $E->ValidMessage();
+$E->ValidMessage();
 echo "<BR>**** FIN VALIDATION MESSAGE *** <BR>";
+// $E->DisplayIndexationMessage();
 $time_end = microtime_float();
 $time = $time_end - $time_start;
 echo "<BR><BR>FIN VALIDATION MESSAGE => TEMP DE REACTION $time secondes\n";
 echo "<BR>";
 
-while ($E->ReadDirectMessage()) {
+while ($E->ReadMessage()) {
 	// Recherche NAD+IV dans le groupe "2"
+	// $E->DisplayCurrentSegment();
+	// echo "IsCurrentGroupName : ".$E->GetCurrentGroupName()."<BR>";
 	if ($E->IsCurrentGroupName("2")) {
+		// echo "IsCurrentSegmentName:".$E->GetCurrentSegmentName()."<BR>";
 			if ($E->IsCurrentSegmentName("NAD")) {
 				if (strcmp($E->GetCurrentDataSegment("10.3035"),"IV") === 0) {
 					$NAD_IV = $E->GetCurrentDataSegment("20.C082.10.3039");
