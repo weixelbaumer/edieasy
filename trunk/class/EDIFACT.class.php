@@ -1696,7 +1696,7 @@
 				fclose($this->FILENAME);
 				return FALSE;
 			} else {
-				$Test = $this->ValidSegment($this->VALEURSEGMENT);
+				$Test = $this->NameSegment($this->VALEURSEGMENT);
 				if (strcmp($Test,"UNT") === 0) {
 					fclose($this->FILENAME);
 					return FALSE;
